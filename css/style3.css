@@ -1,0 +1,51 @@
+body{
+    background-color: rgb(71, 154, 255);
+    color: rgb(149, 186, 255);
+}
+h1 {
+    font-size: 50px;
+    color: rgb(219, 235, 255);
+    background-color: rgb(46, 136, 253);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+div{
+    text-align: center;
+    color: #a0cafd;
+}
+nav{
+    color:rgb(98, 158, 255);   
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+    background: #a9d0ff;
+    color:rgb(29, 147, 250)
+}
+
+head {
+    position: relative;
+}
+
+header h3 {
+    position: absolute;
+    left: calc(50%);
+    transform: translateX(-50%);
+}
+.story-script-regular {
+  font-family: "Story Script", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+h1{
+    background-color: #84bbff;
+    text-align: center;
+    font-size: 50px;
+    color:#a0cafd;
+    font: size 70px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
