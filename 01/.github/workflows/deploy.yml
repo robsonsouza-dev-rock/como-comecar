@@ -1,1 +1,30 @@
-name:  Deploy & Quality
+name: ‼️ Deploy & Quality
+
+on:
+  push:
+    branches:
+      - main
+    workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ${{ Github.workflow }}-${{ Github.ref }}
+  cancel-in-progress: true
+Jobs:
+ Deploy:
+  name: 👌(IMPROVE)Deploy to Github pages
+  runs-on: ubuntu-latest
+  if: Github.ref == 'refs/heads/main'
+  outputs:
+   page_url: ${{ steps.deployment.outputs.page_url }}
+
+  environment:
+   name: Github-pages
+   url: ${{ steps.deployment.outputs.page_url }}
+
+   steps:
+      - name: 
