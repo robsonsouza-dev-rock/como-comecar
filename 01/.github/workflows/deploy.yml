@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-    workflow_dispatch:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -12,32 +12,32 @@ permissions:
   id-token: write
 
 concurrency:
-  group: ${{ Github.workflow }}-${{ Github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-Jobs:
- Deploy:
-  name: 👌(IMPROVE)Deploy to Github pages
-  runs-on: ubuntu-latest
-  if: Github.ref == 'refs/heads/main'
-  outputs:
-   page_url: ${{ steps.deployment.outputs.page_url }}
+jobs:
+  deploy:
+    name: 👌(IMPROVE)Deploy to Github pages
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
 
-  environment:
-   name: Github-pages
-   url: ${{ steps.deployment.outputs.page_url }}
+    environment:
+      name: Github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-   steps:
-      - name: 📥checkout code 
-        uses: actions/checkout@v4
+    steps:
+     - name: 📥checkout code 
+       uses: actions/checkout@v4
 
-      - name: 📑 setub pages
-        uses: actions/configure
+     - name: 📑 setub pages
+       uses: actions/configure
 
-      - name: 📦Upload artifact
-        uses: actions/Upload-pages
-        with:
-         path: "."
+     - name: 📦Upload artifact
+       uses: actions/Upload-pages
+       with:
+        path: "."
 
-      - name: 🚀 Deploy to Github pages
-        id: deployment
-        uses: actions/Deploy-pages@v4
+     - name: 🚀 Deploy to Github pages
+       id: deployment
+       uses: actions/Deploy-pages@v4
